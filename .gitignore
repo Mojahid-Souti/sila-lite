@@ -12,8 +12,11 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
-dist/
-build/
+# Build output only at known places — a bare `build/` would hide the
+# app's agents/build page.
+/dist/
+/build/
+apps/*/dist/
 coverage/
 
 # Editors / OS
