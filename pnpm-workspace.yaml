@@ -1,0 +1,28 @@
+packages:
+  - "apps/web"
+
+# Force patched versions of transitive dev-tool dependencies that carry known
+# CVEs (surfaced by `pnpm audit --audit-level moderate` in CI). All of these
+# come in via dev tooling only — the vitest toolchain (vite/esbuild/ws/
+# form-data/jsdom) and the shadcn CLI (hono/js-yaml) — not production runtime.
+overrides:
+  # next@15 ships 8.4.31 which has a CVE
+  postcss: ">=8.5.10"
+  esbuild: ">=0.28.1"
+  ws: ">=8.21.0"
+  form-data: ">=4.0.6"
+  vite: ">=6.4.3"
+  js-yaml: ">=4.1.2"
+  hono: ">=4.12.25"
+
+# Per-dependency build-script approval (pnpm's canonical location — the `pnpm`
+# field in package.json is no longer read by pnpm v11). The native-binary
+# packages are approved; msw is denied (its browser service-worker build isn't
+# needed — there are no MSW-based tests).
+allowBuilds:
+  "@biomejs/biome": true
+  "@parcel/watcher": true
+  "@swc/core": true
+  esbuild: true
+  sharp: true
+  msw: false

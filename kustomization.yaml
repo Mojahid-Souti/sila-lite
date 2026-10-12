@@ -1,0 +1,53 @@
+# Sila Lite on OpenShift:  oc apply -k .
+# (Create the `sila-secrets` Secret first — see README.)
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: sila-lite
+
+resources:
+  - infra/openshift/config.yaml
+  - infra/openshift/builds.yaml
+  - infra/openshift/supabase.yaml
+  - infra/openshift/sila.yaml
+
+configMapGenerator:
+  - name: supabase-db-init
+    files:
+      - infra/supabase/volumes/db/roles.sql
+      - infra/supabase/volumes/db/jwt.sql
+      - infra/supabase/volumes/db/realtime.sql
+      - infra/supabase/volumes/db/webhooks.sql
+  - name: kong-config
+    files:
+      - infra/supabase/kong.yml
+  - name: sila-policies
+    files:
+      - infra/policies/anomalies.yaml
+      - infra/policies/classification.yaml
+      - infra/policies/compute_cost.schema.json
+      - infra/policies/compute_cost.yaml
+      - infra/policies/hours_saved.yaml
+      - infra/policies/pdpl.yaml
+
+# Fill the hostname and public URL from sila-config into the Routes and the
+# web build, so config.yaml is the only file to edit.
+replacements:
+  - source:
+      kind: ConfigMap
+      name: sila-config
+      fieldPath: data.PUBLIC_HOST
+    targets:
+      - select: { kind: Route }
+        fieldPaths: [spec.host]
+  - source:
+      kind: ConfigMap
+      name: sila-config
+      fieldPath: data.PUBLIC_URL
+    targets:
+      - select: { kind: BuildConfig, name: sila-web }
+        fieldPaths:
+          - spec.strategy.dockerStrategy.buildArgs.[name=NEXT_PUBLIC_API_URL].value
+          - spec.strategy.dockerStrategy.buildArgs.[name=NEXT_PUBLIC_SUPABASE_URL].value

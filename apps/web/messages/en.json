@@ -1,0 +1,623 @@
+{
+  "auth": {
+    "login": {
+      "title": "Welcome to Sila",
+      "subtitle": "Enter your email & password to continue.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password",
+      "submitButton": "Sign In",
+      "submitting": "Signing in…",
+      "sessionExpired": "Your session expired. Please sign in again.",
+      "orSignInWith": "Or sign in with",
+      "comingSoon": "Coming soon",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Create an account"
+    },
+    "signup": {
+      "title": "Create your account",
+      "subtitle": "Start building, vetting, and hiring AI agents in minutes.",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Enter your full name",
+      "nameError": "Name must be between 2 and 60 characters",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a password",
+      "passwordTooShort": "Password must be at least 12 characters",
+      "confirmLabel": "Confirm password",
+      "confirmPlaceholder": "Re-enter your password",
+      "passwordMismatch": "Passwords do not match",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "strengthWeak": "Weak",
+      "strengthFair": "Fair",
+      "strengthStrong": "Strong",
+      "strengthVeryStrong": "Very strong",
+      "termsPrefix": "I agree to the",
+      "termsLink": "Terms of Service",
+      "termsAnd": "and",
+      "privacyLink": "Privacy Policy",
+      "submitButton": "Create account",
+      "submitting": "Creating account…",
+      "orSignUpWith": "Or sign up with",
+      "comingSoon": "Coming soon",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    },
+    "verify": {
+      "title": "Check your email",
+      "message": "We sent a 6-digit code to",
+      "codeLabel": "Verification code",
+      "verifying": "Verifying…",
+      "pasteOnly": "Copy the 6-digit code from the email and paste it here.",
+      "expiry": "This code expires in 10 minutes and can only be used once.",
+      "backToLogin": "Back to sign in",
+      "invalidCode": "Invalid or expired code. Please request a new one.",
+      "noEmail": "Email address missing. Please sign up again.",
+      "successTitle": "Email verified",
+      "successMessage": "Your account is active. Redirecting to sign in…"
+    },
+    "resetPassword": {
+      "title": "Forgot your password?",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "submitButton": "Send reset link",
+      "submitting": "Sending…",
+      "sentTitle": "Check your inbox",
+      "sentMessage": "We sent a password reset link to",
+      "didntReceive": "Didn't receive the email?",
+      "resendLink": "Resend link",
+      "resendIn": "Resend in {seconds}s",
+      "backToLogin": "Back to sign in"
+    },
+    "newPassword": {
+      "title": "Set a new password",
+      "subtitle": "Choose a strong password for your account.",
+      "passwordLabel": "New password",
+      "passwordPlaceholder": "Enter a new password",
+      "passwordTooShort": "Password must be at least 12 characters",
+      "confirmLabel": "Confirm new password",
+      "confirmPlaceholder": "Re-enter your new password",
+      "passwordMismatch": "Passwords do not match",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "strengthWeak": "Weak",
+      "strengthFair": "Fair",
+      "strengthStrong": "Strong",
+      "strengthVeryStrong": "Very strong",
+      "submitButton": "Update password",
+      "submitting": "Updating…",
+      "successTitle": "Password updated",
+      "successMessage": "You can now sign in with your new password.",
+      "successToast": "Password updated successfully.",
+      "noSessionTitle": "Reset link expired or invalid",
+      "noSessionMessage": "Request a new password reset link to continue.",
+      "requestNewLink": "Request a new link",
+      "genericError": "Could not update password. Please try again.",
+      "backToLogin": "Back to sign in"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "signupFailed": "Signup failed. Check your email and try again.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "workspace": {
+    "dashboard": {
+      "title": "Your Workspaces",
+      "empty": "No workspaces yet.",
+      "createButton": "Create workspace"
+    },
+    "create": {
+      "title": "Create a workspace",
+      "subtitle": "Set up a workspace for your team to build and manage agents.",
+      "nameLabel": "Workspace name",
+      "namePlaceholder": "e.g. Customer Success",
+      "nameHint": "Between 2 and 100 characters.",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What will this workspace be used for?",
+      "submitButton": "Create workspace",
+      "creating": "Creating…",
+      "cancelButton": "Cancel",
+      "successMessage": "Workspace \"{name}\" created successfully."
+    }
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "bazaar": "Bazaar",
+    "knowledgeBase": "Knowledge Base",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "notifications": {
+      "title": "Notifications",
+      "open": "Notifications",
+      "unread": "{count} unread",
+      "markAllRead": "Mark all as read",
+      "empty": "Nothing new. Hiring an agent or picking a template or skill shows up here."
+    }
+  },
+  "agent": {
+    "list": {
+      "title": "Agents",
+      "createButton": "New Agent",
+      "empty": "No agents yet. Import a YAML file or start from a template.",
+      "filterAll": "All",
+      "filterDraft": "Draft",
+      "filterPublished": "Published",
+      "filterArchived": "Archived"
+    },
+    "new": {
+      "title": "New Agent",
+      "tabUpload": "Upload YAML",
+      "tabTemplate": "From Template",
+      "uploadLabel": "Dify DSL file",
+      "uploadHint": "YAML file up to 1 MB",
+      "uploadButton": "Import",
+      "templatePickerTitle": "Choose a template",
+      "useTemplateButton": "Use template",
+      "cancelButton": "Cancel"
+    },
+    "detail": {
+      "statusBadge": "Status",
+      "version": "Version",
+      "classification": "Classification",
+      "owner": "Owner",
+      "editButton": "Edit",
+      "publishButton": "Publish",
+      "archiveButton": "Archive",
+      "cloneButton": "Clone",
+      "testButton": "Test",
+      "versionsTitle": "Version history",
+      "rollbackButton": "Rollback to this version",
+      "testPlaceholder": "Enter a test message...",
+      "testSendButton": "Send",
+      "testResponseLabel": "Response"
+    },
+    "status": {
+      "draft": "Draft",
+      "in_review": "In Review",
+      "published": "Published",
+      "archived": "Archived"
+    },
+    "errors": {
+      "importFailed": "Import failed. Check the YAML and try again.",
+      "testFailed": "Test failed. Make sure the agent is registered with Dify.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "bazaar": {
+    "catalog": {
+      "title": "Bazaar",
+      "subtitle": "Discover and hire vetted agents for your workspace",
+      "searchPlaceholder": "Search agents…",
+      "filterAll": "My hired agents",
+      "filterCategories": "Category",
+      "filterKind": "Type",
+      "kindChat": "Chat",
+      "kindWorkflow": "Workflow",
+      "empty": "No published agents found. Try a different search.",
+      "emptyTitle": "No agents here yet",
+      "emptyHint": "Once agents pass security review they appear in the Bazaar.",
+      "emptyCta": "Build an agent",
+      "results": "{count, plural, one {# agent found} other {# agents found}}",
+      "noResultsTitle": "No agents match",
+      "clearFilters": "Clear search & filters",
+      "kindSkills": "Skills"
+    },
+    "trending": {
+      "label": "Trending now",
+      "view": "View agent",
+      "dismiss": "Dismiss"
+    },
+    "feedback": {
+      "report": "Report",
+      "reportTitle": "Report this agent",
+      "reportDescription": "Tell us what's wrong. Reports go to the workspace admins for review.",
+      "reportPlaceholder": "Describe the issue (spam, unsafe behaviour, wrong output…)",
+      "reportSubmit": "Submit report",
+      "reportThanks": "Thanks — your report was submitted for review.",
+      "reportFailed": "Couldn't submit the report. Please try again."
+    },
+    "agent": {
+      "hireButton": "Hire",
+      "hiredButton": "Hired",
+      "unhireButton": "Unhire",
+      "openButton": "Open",
+      "kindChat": "Chat",
+      "kindWorkflow": "Workflow",
+      "ratingCount": "{count} reviews",
+      "noRatings": "No ratings yet",
+      "classification": "Classification",
+      "version": "Version",
+      "detailsButton": "Details",
+      "likeAction": "Like",
+      "shareAction": "Copy link",
+      "hireSetupTooltip": "Hire & set up",
+      "hiredTooltip": "Hired — tap to remove",
+      "hiredToast": "{name} hired — it's in My agents"
+    },
+    "review": {
+      "title": "Reviews",
+      "ratingLabel": "Your rating",
+      "bodyLabel": "Review (optional)",
+      "bodyPlaceholder": "Tell others about your experience with this agent…",
+      "submitButton": "Submit review",
+      "updateButton": "Update review",
+      "empty": "No reviews yet. Be the first to review this agent.",
+      "loadMore": "Load more"
+    },
+    "hired": {
+      "title": "My Hired Agents",
+      "subtitle": "Agents you've hired into this workspace",
+      "empty": "You haven't hired any agents yet. Browse the Bazaar to get started.",
+      "emptyTitle": "No hired agents yet",
+      "emptyCta": "Browse the Bazaar"
+    },
+    "errors": {
+      "hireFailed": "Hire failed. Please try again.",
+      "reviewFailed": "Review submission failed. Please try again.",
+      "generic": "Something went wrong. Please try again."
+    },
+    "templates": {
+      "byPublisher": "Template · by {publisher}",
+      "badge": "Template",
+      "useButton": "Use template",
+      "chipHint": "Ready-to-use template"
+    },
+    "skills": {
+      "sectionTitle": "Skills",
+      "badge": "Skill",
+      "fromSource": "Skill · from {source}",
+      "useSkill": "Use skill",
+      "about": "About {name}",
+      "installs": "{count} installs",
+      "noLicence": "No licence stated",
+      "licence": "Licence: {licence}",
+      "instructionsOnly": "Instructions only",
+      "scriptsNotRun": "Ships scripts — only its instructions are used",
+      "categoryLabel": "Category:",
+      "allCategories": "All",
+      "filterInstructionsOnly": "Instructions only",
+      "filterLicensed": "Licence stated",
+      "sortPopular": "Most installed",
+      "sortNewest": "Newest",
+      "emptyTitle": "No skills yet",
+      "emptyHint": "An Admin imports open-source skills; they appear here once a Reviewer approves them.",
+      "noResults": "No skills match these filters.",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {page}",
+      "categories": {
+        "development": "Development",
+        "data": "Data & Analytics",
+        "design": "Design & UI",
+        "writing": "Writing & Docs",
+        "marketing": "Marketing & SEO",
+        "media": "Images & Video",
+        "productivity": "Productivity",
+        "other": "Other"
+      },
+      "details": {
+        "instructions": "Instructions",
+        "source": "Source repository",
+        "dependencies": "Declared dependencies",
+        "none": "None declared",
+        "close": "Close"
+      },
+      "status": {
+        "needs_review": "Waiting for review",
+        "approved": "Published",
+        "rejected": "Rejected",
+        "unpublished": "Approved · not listed"
+      },
+      "import": {
+        "button": "Import skills",
+        "title": "Import open-source skills",
+        "subtitle": "From skills-library.com. Only a skill's instructions are imported; each is scanned, then waits for a Reviewer's approval.",
+        "search": "Search the catalog…",
+        "action": "Import",
+        "importing": "Importing…",
+        "done": "{name} imported — waiting for review",
+        "rejected": "{name} was rejected by the security scan",
+        "failed": "Import failed: {error}",
+        "empty": "No skills match.",
+        "close": "Close",
+        "byRef": "Or import by GitHub reference",
+        "byRefHint": "owner/repo/skill-folder — for skills the catalog doesn't list",
+        "byRefPlaceholder": "coreyhaines31/marketingskills/copywriting",
+        "byRefInvalid": "Use owner/repo/skill-folder"
+      },
+      "review": {
+        "title": "Your workspace's skills",
+        "hint": "Imported here. Approve to publish in the Bazaar.",
+        "approve": "Approve & publish",
+        "reject": "Reject",
+        "publish": "Publish",
+        "unpublish": "Unpublish",
+        "findings": "Scan findings",
+        "noFindings": "The scan found nothing.",
+        "decided": "{name}: {status}",
+        "failed": "Could not update {name}: {error}",
+        "rescan": "Re-scan",
+        "more": "Show more ({count})",
+        "count": "{count, plural, one {# skill} other {# skills}}",
+        "waiting": "{count} waiting for review",
+        "show": "Show your workspace's skills",
+        "hide": "Hide your workspace's skills",
+        "remove": "Remove",
+        "removeAsk": "Remove {name} from Sila? It leaves the Bazaar and any chat using it. You can import it again later.",
+        "removeYes": "Remove",
+        "cancel": "Cancel",
+        "removed": "{name} removed"
+      },
+      "scriptsBadge": "Scripts not run",
+      "showMoreCount": "Show more ({count})",
+      "showLess": "Show less",
+      "select": {
+        "title": "Add skills (optional)",
+        "count": "{count} of {max}",
+        "search": "Search skills…",
+        "none": "No published skills match.",
+        "okr": "The OKR Reporting Pack runs without skills — its conversations are confidential.",
+        "useTemplate": "Use template",
+        "useWith": "Use template + {count, plural, one {# skill} other {# skills}}"
+      }
+    }
+  },
+  "knowledgeBase": {
+    "title": "Knowledge Base",
+    "description": "Upload and manage documents. Agents can search them to ground their responses.",
+    "newKB": "New Knowledge Base",
+    "emptyKBs": "No knowledge bases yet. Create one to start uploading documents.",
+    "selectKBPrompt": "Create a knowledge base to start uploading documents.",
+    "selectKB": "Select KB",
+    "cancel": "Cancel",
+    "tabs": {
+      "documents": "Documents",
+      "upload": "Upload",
+      "search": "Search"
+    },
+    "documentsTitle": "Documents",
+    "emptyDocs": "No documents yet. Upload a file to get started.",
+    "deleteKB": "Delete knowledge base",
+    "deleteKBConfirm": "Delete this knowledge base and all its documents? This cannot be undone.",
+    "viewAsGrid": "Grid view",
+    "viewAsTable": "Table view",
+    "securityNote": "Uploaded files are virus-scanned and checked for PII before indexing.",
+    "table": {
+      "name": "Name",
+      "type": "Type",
+      "size": "Size",
+      "status": "Status",
+      "added": "Added"
+    },
+    "kb": {
+      "scope": {
+        "workspace": "Workspace",
+        "agent": "Agent"
+      },
+      "status": {
+        "active": "Active",
+        "archived": "Archived"
+      },
+      "documentsCount": "{count, plural, one {# document} other {# documents}}"
+    },
+    "createKB": {
+      "title": "Create Knowledge Base",
+      "nameLabel": "Name",
+      "namePlaceholder": "HR Policies, Product Manual…",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What documents will this KB contain?",
+      "scopeLabel": "Scope",
+      "workspaceScope": "Workspace — shared with all members",
+      "agentScope": "Agent — private to one agent",
+      "createButton": "Create",
+      "creating": "Creating…",
+      "success": "Knowledge base created.",
+      "error": "Failed to create knowledge base."
+    },
+    "upload": {
+      "title": "Upload Document",
+      "dropzone": "Drop a file here or click to browse",
+      "dropzoneHint": "PDF, DOCX, TXT, MD, HTML · max 50 MB",
+      "uploadButton": "Upload",
+      "uploading": "Uploading…",
+      "processing": "Processing…",
+      "uploadComplete": "Upload complete",
+      "dragDrop": "Drag and drop files here",
+      "or": "or",
+      "chooseFiles": "Choose files",
+      "statusSuccess": "Uploaded",
+      "statusFailed": "Failed",
+      "clear": "Remove file",
+      "successTitle": "Upload accepted",
+      "successMessage": "Your document is being processed. Status will update automatically.",
+      "duplicateMessage": "This file already exists in the knowledge base.",
+      "errorFileTooLarge": "File exceeds the 50 MB limit.",
+      "errorFileType": "File type not allowed. Use PDF, DOCX, TXT, MD, or HTML.",
+      "errorGeneric": "Upload failed. Please try again."
+    },
+    "document": {
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "ready": "Ready",
+        "failed": "Failed"
+      },
+      "deleteButton": "Delete",
+      "deleteConfirm": "Delete this document and all its indexed chunks?",
+      "deleteError": "Delete failed. Please try again.",
+      "pages": "{count, plural, one {# page} other {# pages}}",
+      "tokens": "{count} tokens"
+    },
+    "search": {
+      "placeholder": "Search documents…",
+      "searchButton": "Search",
+      "searching": "Searching…",
+      "noResults": "No results found.",
+      "resultsTitle": "Search Results",
+      "clear": "Clear search",
+      "showingResults": "Showing results for \"{query}\"",
+      "source": "Source: {filename}, page {page}",
+      "topK": "Top results"
+    },
+    "errors": {
+      "loadFailed": "Failed to load knowledge bases.",
+      "createFailed": "Failed to create knowledge base.",
+      "deleteFailed": "Failed to delete.",
+      "uploadFailed": "Upload failed.",
+      "searchFailed": "Search failed."
+    }
+  },
+  "sila": {
+    "states": {
+      "listening": "SILA is listening…",
+      "thinking": "SILA is thinking…",
+      "speaking": "SILA is speaking…"
+    },
+    "greeting": {
+      "morning": "Good morning, {name}.",
+      "afternoon": "Good afternoon, {name}.",
+      "evening": "Good evening, {name}."
+    },
+    "hint": "Tap a suggestion — or type what you need.",
+    "typeInstead": "Type instead",
+    "placeholder": "Tell SILA what you want to build…",
+    "send": "Send",
+    "offline": "SILA is unavailable right now — try again in a moment.",
+    "attach": "Attach files",
+    "attachSoon": "Attachments arrive with the build-from-documents stage",
+    "tools": {
+      "navigate": "Opening the page",
+      "search_bazaar": "Searching the Bazaar",
+      "hire_agent": "Hiring the agent"
+    },
+    "chips": {
+      "docs": "Build an agent from my documents",
+      "screen": "Help me on my screen",
+      "report": "Automate my weekly report"
+    },
+    "s1": {
+      "user": "Build me an agent that answers HR questions from our policy documents.",
+      "need": "Great choice. I'll need those policy documents so the agent answers from your facts — not guesses.",
+      "got": "Got them. Drafting your agent now…",
+      "t1": "Understanding your request",
+      "t2": "Drafting the agent",
+      "t3": "Connecting your documents",
+      "t4": "Submitting to the security agent",
+      "done": "Done — your draft is ready. It must pass security review before anyone can hire it."
+    },
+    "s2": {
+      "user": "Something's wrong with the workflow I'm building — help me fix it.",
+      "ask": "I can take a look. Can you share your screen with me so I can see it?",
+      "seeing": "I can see your screen now. Walk me through what you expected to happen.",
+      "denied": "No problem — we can do it without the screen. Describe what you see and I'll guide you."
+    },
+    "s3": {
+      "user": "Automate my weekly sales report and email it to my team.",
+      "plan": "On it. I'll connect your data, summarize it with our local AI, and schedule the email.",
+      "t1": "Designing the workflow",
+      "t2": "Adding the schedule — every Sunday, 8:00",
+      "t3": "Drafting the email step",
+      "t4": "Submitting to the security agent",
+      "done": "Draft created. The security agent flagged the email step for review — external sends always need a human OK."
+    },
+    "generic": {
+      "reply": "Soon I'll build that for you end to end. Today, try one of the suggestions to see what I can do."
+    },
+    "upload": {
+      "title": "Drop your documents here for me",
+      "hint": "Click to choose files — PDF, Word, or text",
+      "close": "Close",
+      "continue": "Continue",
+      "useSamples": "Use sample documents",
+      "sampleA": "hr-policy-2026.pdf",
+      "sampleB": "leave-guidelines.docx"
+    },
+    "share": {
+      "title": "SILA wants to see your screen",
+      "body": "She'll watch only while you share, to guide you on what you see. Nothing is recorded in this demo.",
+      "allow": "Share my screen",
+      "deny": "Not now",
+      "viewing": "SILA can see your screen",
+      "stop": "Stop sharing"
+    },
+    "micStart": "Tap to talk to SILA",
+    "micStop": "Tap to finish",
+    "recording": "Listening — tap the orb when you're done",
+    "consentTitle": "Give SILA ears?",
+    "consentBody": "SILA listens for a double clap to wake up, then talks with you hands-free. Your voice becomes text and is never stored; the orb shows whenever she's listening.",
+    "consentAllow": "Allow the microphone",
+    "consentDeny": "Not now",
+    "clapHint": "SILA is asleep — clap twice 👏👏 to wake her, or tap the orb",
+    "enableHint": "Tap the orb to give SILA ears — she'll wake on a double clap",
+    "hearing": "I hear you — keep going, pause when you're done",
+    "wakeAria": "Wake SILA",
+    "sleepAria": "Put SILA to sleep",
+    "skills": {
+      "remove": "Remove skill {name}",
+      "chipHint": "Skill · guides this chat",
+      "add": "Add a skill",
+      "pickerTitle": "Add a skill",
+      "pickerSearch": "Search published skills…",
+      "pickerEmpty": "No published skills match.",
+      "attached": "Skill attached: {name}",
+      "limit": "A chat can use up to {max} skills.",
+      "confidential": "Skills can't be used with the OKR Reporting Pack.",
+      "templateInUse": "Template in use: {name}",
+      "already": "{name} is already attached.",
+      "attachedMany": "Skills attached: {names}"
+    }
+  },
+  "onboarding": {
+    "stepLabel": "Step {current} of {total}",
+    "continue": "Continue",
+    "back": "Back",
+    "finish": "Finish",
+    "saving": "Saving…",
+    "error": "Something went wrong. Please try again.",
+    "otherLabel": "Please specify",
+    "otherPlaceholder": "Tell us more…",
+    "referralSource": {
+      "title": "Where did you hear about us?",
+      "subtitle": "Helps us understand how people find Sila.",
+      "options": {
+        "colleague": "A colleague",
+        "linkedin": "LinkedIn",
+        "conference": "Conference",
+        "search": "Search engine",
+        "omantel": "Omantel",
+        "other": "Other"
+      }
+    },
+    "jobRole": {
+      "title": "What's your role?",
+      "subtitle": "We'll tailor a few things to how you work.",
+      "options": {
+        "executive": "Executive",
+        "manager": "Manager",
+        "developer": "Developer",
+        "analyst": "Analyst",
+        "operations": "Operations",
+        "other": "Other"
+      }
+    },
+    "agentExperience": {
+      "title": "Have you built AI agents before?",
+      "subtitle": "This sets your starting experience — you can switch anytime.",
+      "options": {
+        "never": "Never",
+        "some": "A little",
+        "experienced": "Experienced"
+      }
+    }
+  }
+}

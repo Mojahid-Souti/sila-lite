@@ -1,0 +1,412 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* shadcn/ui design tokens — Neutral baseColor, light mode only (Phase 11). */
+/* Dark-mode variables are intentionally omitted per CLAUDE.md decision. */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary actions: TRUE blue (shadcn blue-600) — the earlier violet-blue
+       (#2D13EA) read as purple on chips/buttons (user feedback). Never black. */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* font-sans resolves to the self-hosted Inter from next/font, so every
+       screen renders the same face instead of whatever the OS had. */
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  /* Reading typography for SILA's replies. Was Calibri, which meant the
+     interface looked different on every machine and fell back to whatever the
+     OS happened to ship. Now a real self-hosted webfont, so it renders the same
+     everywhere. Code stays mono. */
+  .sila-prose {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial,
+      sans-serif;
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.7;
+    letter-spacing: 0;
+  }
+  .sila-prose code,
+  .sila-prose pre {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+  }
+  /* Headings inside a reply. Markdown emitted them at browser defaults, so an
+     h1 in an answer rendered enormous and a bare <strong> line read the same as
+     a heading. These give a reply real hierarchy. */
+  .sila-prose h1,
+  .sila-prose h2,
+  .sila-prose h3 {
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: rgb(23 23 23);
+  }
+  .sila-prose h1 {
+    font-size: 1.35em;
+    margin: 1.4em 0 0.5em;
+  }
+  .sila-prose h2 {
+    font-size: 1.18em;
+    margin: 1.3em 0 0.45em;
+  }
+  .sila-prose h3 {
+    font-size: 1.05em;
+    margin: 1.15em 0 0.4em;
+  }
+  .sila-prose h1:first-child,
+  .sila-prose h2:first-child,
+  .sila-prose h3:first-child {
+    margin-top: 0;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * PrismJS tokens — minimal palette for the YAML editor in the import flow.
+ * Keep this in sync with the editor background in import-yaml-form.tsx
+ * (neutral-950). One-color-family palette so it reads as Sila, not VSCode.
+ * --------------------------------------------------------------------------- */
+.token.comment {
+  color: rgb(115 115 115); /* neutral-500 */
+  font-style: italic;
+}
+.token.key,
+.token.tag,
+.token.atrule {
+  color: rgb(125 211 252); /* sky-300 */
+}
+.token.string,
+.token.url,
+.token.boolean {
+  color: rgb(134 239 172); /* green-300 */
+}
+.token.number,
+.token.constant {
+  color: rgb(252 211 77); /* amber-300 */
+}
+.token.punctuation,
+.token.operator {
+  color: rgb(163 163 163); /* neutral-400 */
+}
+.token.anchor,
+.token.alias {
+  color: rgb(196 181 253); /* violet-300 */
+}
+
+/* YAML error-line highlight inside the import editor. */
+.yaml-error-line {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(244, 63, 94, 0.15);
+  border-left: 2px solid rgb(244 63 94);
+  padding-left: 6px;
+  margin-left: -8px;
+}
+
+/* Brand loader — the S mark spins CLOCKWISE while a page/section loads, with a
+ * slight cadence (ease through each half-turn) so it reads deliberate. */
+@keyframes sila-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.sila-loader-mark {
+  animation: sila-spin 1.4s cubic-bezier(0.65, 0.1, 0.35, 0.9) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sila-loader-mark {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* Thin, unobtrusive scrollbar for light surfaces (composer, plan document). */
+.sila-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(212 212 212) transparent; /* neutral-300 */
+}
+.sila-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.sila-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sila-scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(212 212 212);
+  border-radius: 3px;
+}
+.sila-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(163 163 163); /* neutral-400 */
+}
+
+/* Hidden-but-scrollable scrollbar for the YAML editor (dark surface). */
+.yaml-editor-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+.yaml-editor-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.yaml-editor-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.yaml-editor-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.yaml-editor-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Security-warning line highlight (lighter than the parse-error wash). */
+.yaml-warning-line {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(251, 191, 36, 0.12); /* amber-400/12 */
+  border-left: 2px solid rgb(251 191 36);
+  padding-left: 6px;
+  margin-left: -8px;
+  cursor: help;
+}
+.yaml-error-line {
+  cursor: help; /* native title= tooltip on hover */
+}
+
+/* Vetting code-panel: per-finding line highlights. */
+.yaml-finding-critical,
+.yaml-finding-high,
+.yaml-finding-medium,
+.yaml-finding-low {
+  display: inline-block;
+  width: 100%;
+  padding-left: 6px;
+  margin-left: -8px;
+  cursor: help;
+}
+.yaml-finding-critical {
+  background-color: rgba(244, 63, 94, 0.18);
+  border-left: 2px solid rgb(244 63 94);
+}
+.yaml-finding-high {
+  background-color: rgba(244, 63, 94, 0.1);
+  border-left: 2px solid rgb(251 113 133);
+}
+.yaml-finding-medium {
+  background-color: rgba(251, 191, 36, 0.12);
+  border-left: 2px solid rgb(251 191 36);
+}
+.yaml-finding-low {
+  background-color: rgba(163, 163, 163, 0.1);
+  border-left: 2px solid rgb(163 163 163);
+}
+.yaml-finding-count {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: rgb(244, 63, 94);
+  background-color: rgba(244, 63, 94, 0.14);
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.yaml-flash-line {
+  display: inline-block;
+  width: 100%;
+  padding-left: 6px;
+  margin-left: -8px;
+  background-color: rgba(250, 204, 21, 0.35);
+  border-left: 2px solid rgb(250 204 21);
+  animation: yaml-flash 1.4s ease-out;
+}
+@keyframes yaml-flash {
+  0% {
+    background-color: rgba(250, 204, 21, 0.55);
+  }
+  100% {
+    background-color: rgba(250, 204, 21, 0.0);
+  }
+}
+
+/* Vetting inbox: pulse 3 times then settle. Animation key on the badge
+   re-fires this when the underlying runId changes (fresh scan = fresh
+   attention). */
+@keyframes vetting-inbox-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.55);
+  }
+  60% {
+    box-shadow: 0 0 0 10px rgba(244, 63, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+  }
+}
+.vetting-inbox-pulse {
+  animation: vetting-inbox-pulse 1.6s ease-out;
+  animation-iteration-count: 3;
+}
+
+/* SILA orb — gentle levitation on the home page */
+@keyframes sila-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-sila-float {
+  animation: sila-float 6s ease-in-out infinite;
+}
+
+/* SILA — pulsing ring on panels she opens mid-conversation */
+@keyframes sila-pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 19, 234, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(45, 19, 234, 0);
+  }
+}
+.sila-pulse-ring {
+  animation: sila-pulse-ring 1.8s ease-out infinite;
+}
+
+/* SILA — shimmering "thinking" text: a darker band sweeps left→right */
+@keyframes sila-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+.sila-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgb(163 163 163) 0%,
+    rgb(163 163 163) 40%,
+    rgb(23 23 23) 50%,
+    rgb(163 163 163) 60%,
+    rgb(163 163 163) 100%
+  );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: sila-shimmer 1.6s linear infinite;
+}
+
+/* SILA — a counted read (inbox, channel): each item slides in as it is read,
+   so the list visibly grows instead of landing as one block. */
+@keyframes sila-read-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sila-read-in {
+  animation: sila-read-in 260ms ease-out both;
+}
+
+/* SILA — soft neutral pulse for the inline upload affordance */
+@keyframes sila-pulse-gray {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(115, 115, 115, 0.22);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(115, 115, 115, 0);
+  }
+}
+.sila-pulse-gray {
+  animation: sila-pulse-gray 1.8s ease-out infinite;
+}
+
+/* SILA — trace step rows fade + rise in as they appear */
+@keyframes sila-trace-row {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sila-trace-row {
+  animation: sila-trace-row 0.28s ease-out;
+}
+
+/* SILA — action-trail cards slide in */
+@keyframes sila-trail-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sila-trail-card {
+  animation: sila-trail-in 0.35s ease-out both;
+}

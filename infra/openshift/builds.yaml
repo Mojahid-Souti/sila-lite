@@ -1,0 +1,104 @@
+# Image builds from this repository (Docker strategy — the Dockerfiles in the
+# repo, not the Node.js/Python source-to-image builders). Start them with:
+#   oc start-build sila-opa --follow
+#   oc start-build sila-api --follow
+#   oc start-build sila-web --follow
+# `lookupPolicy.local` lets pods in this project refer to "sila-api:latest".
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: sila-api
+spec:
+  lookupPolicy:
+    local: true
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: sila-web
+spec:
+  lookupPolicy:
+    local: true
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: sila-opa
+spec:
+  lookupPolicy:
+    local: true
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: sila-api
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/Mojahid-Souti/sila-lite.git
+      ref: main
+    contextDir: apps/api
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: sila-api:latest
+  resources:
+    limits:
+      memory: 3Gi
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: sila-opa
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/Mojahid-Souti/sila-lite.git
+      ref: main
+    contextDir: infra/opa
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: sila-opa:latest
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: sila-web
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/Mojahid-Souti/sila-lite.git
+      ref: main
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: apps/web/Dockerfile
+      # Next.js bakes NEXT_PUBLIC_* into the bundle at build time; the two
+      # URLs are filled from sila-config (PUBLIC_URL) by the kustomization.
+      # Supabase is not exposed in Lite, so the browser never uses this key.
+      buildArgs:
+        - name: NEXT_PUBLIC_API_URL
+          value: PUBLIC_URL
+        - name: NEXT_PUBLIC_SUPABASE_URL
+          value: PUBLIC_URL
+        - name: NEXT_PUBLIC_SUPABASE_ANON_KEY
+          value: not-exposed-in-lite
+  output:
+    to:
+      kind: ImageStreamTag
+      name: sila-web:latest
+  resources:
+    limits:
+      memory: 4Gi
